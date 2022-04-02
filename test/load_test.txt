@@ -1,0 +1,12 @@
+root
+├──child
+│  ├──child1
+│  │  ├──leaf
+│  │  └──child
+│  │     ├──leaf1
+│  │     └──leaf2
+│  └──child2
+│     ├──leaf1
+│     └──leaf2
+└──leaf
+

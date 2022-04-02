@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+
+# gtree Build artifacts
+build/out/debug/*
+build/out/release/*
