@@ -6,14 +6,15 @@
 
 enum class tree_cmd
 {
-    unknown =   0,
-    print =     1,
-    create =    2,
-    load =      3,
-    reset =     4,
-    quit =      5,
-    edit =      6,
-    help =      7,
+    unknown =   0x0,
+    print =     0x1,
+    create =    0x2,
+    load =      0x3,
+    reset =     0x4,
+    quit =      0x5,
+    edit =      0x6,
+    help =      0x7,
+    select =    0x8,
 };
 
 const std::map<std::string, tree_cmd> tree_cmd_map =
@@ -37,7 +38,10 @@ const std::map<std::string, tree_cmd> tree_cmd_map =
     std::make_pair("e", tree_cmd::edit),
 
     std::make_pair("help", tree_cmd::help),
-    std::make_pair("h", tree_cmd::help)
+    std::make_pair("h", tree_cmd::help),
+
+    std::make_pair("select", tree_cmd::select),
+    std::make_pair("s", tree_cmd::select)
 };
 
 tree_cmd parse_command(std::string cmd);
