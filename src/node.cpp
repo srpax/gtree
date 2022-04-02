@@ -3,43 +3,22 @@
 #include <iostream>
 #include <cstdint>
 
-std::string tree_node::_prev_formed_padding = "";
-
 std::string tree_node::get_child_padding()
 {
-    if (is_last_sibling())
-    {
-        return "   ";
-    }
-    else
-    {
-        return "│  ";
-    }
+    if (this->is_root()) return ""; // no padding for the root node's children
+    return this->is_last_sibling() ? "   " : "│  ";
 }
 
 std::string tree_node::get_header()
 {
-    // get the header before the name is printed
-    if (this->is_last_sibling())
-    {
-        return "└──";
-    }
-    else
-    {
-        return "├──";
-    }
+    if (this->is_root()) return ""; // no header for the root node
+    return this->is_last_sibling() ? "└──" : "├──";
 }
 
 void tree_node::print(std::ostream& os, std::string padding, uint32_t depth)
 {
-    std::string header = "";
-    std::string child_padding = "";
-    if (!is_root())
-    {
-        header = get_header();
-        child_padding = get_child_padding();
-    }
-    
+    std::string header = this->get_header();
+    std::string child_padding = this->get_child_padding();
     os << padding << header << _name << std::endl;
 
     tree_node* child = _child;
@@ -53,6 +32,7 @@ void tree_node::print(std::ostream& os, std::string padding, uint32_t depth)
 
 void tree_node::add_child(tree_node* child)
 {
+    // TODO: simplify this logic
     if (this->is_parent())
     {
         // create next sibling
@@ -95,7 +75,7 @@ tree_node* tree_node::build_tree()
 
 void tree_node::destroy_siblings()
 {
-    while (!is_only_child())
+    while (!this->is_only_child())
     {
         tree_node* sibling = _next_rel;
         this->link_next_relative(sibling->_next_rel);
@@ -145,6 +125,7 @@ std::ostream& operator<<(std::ostream& os, tree_node* node)
 
 std::istream& operator>>(std::istream& is, tree_node& node)
 {
+    // TODO: implement
     //ignore whitespace until first line
 
     //get first char column position

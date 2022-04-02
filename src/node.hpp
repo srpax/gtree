@@ -13,7 +13,6 @@ private:
     tree_node* _prev_rel;
     tree_node* _child;
 
-    static std::string _prev_formed_padding;
     std::string get_header();
     std::string get_child_padding();
     void print(std::ostream& os, std::string padding, uint32_t depth);
@@ -23,10 +22,12 @@ private:
     inline void link_parent(tree_node* parent) { this->_parent = parent; parent->_child = this; }
 
 public:
+    // TODO: give nodes a UUID and support empty ctor
     tree_node(std::string name) : _name(name) {} 
     ~tree_node() {}
 
-    // root is special, all nodes besides child are null
+    #pragma region Non-static Methods
+
     inline bool is_root() { return (_parent == nullptr) && (_next_rel == nullptr) && (_prev_rel == nullptr); }
     inline bool is_parent() { return _child != nullptr; }
     inline bool is_child() { return _parent != nullptr; }
@@ -42,13 +43,26 @@ public:
     void add_child(tree_node* child);
     
     /**
-     * @brief Destroys all siblings of this node, including link nodes.
+     * @brief Destroys all siblings of this node, including link nodes. 
+     * WARNING: Possible memory leak if called on a non-link node.
      * 
      */
     void destroy_siblings();
-    
+
     /**
-     * @brief Create a new tree while prompting for and taking user input from standard I/O streams.
+     * @brief 
+     * 
+     * @param file 
+     * @return tree_node* 
+     */
+    tree_node* serialize(std::string file);
+
+    #pragma endregion
+
+    #pragma region Static Methods
+
+    /**
+     * @brief Start the user interactive process for creating a node structure.
      * @returns Newly created tree node.
      */
     static tree_node* build_tree();
@@ -66,7 +80,7 @@ public:
      * @param file 
      * @return tree_node* 
      */
-    static tree_node* load_node(std::string file);
+    static tree_node* deserialize(std::string file);
 
     /**
      * @brief Outputs the given node to the output stream. Guarantees std::flush on success.
@@ -85,6 +99,8 @@ public:
      * @return std::istream& 
      */
     friend std::istream& operator>>(std::istream& is, tree_node* node);
+
+    #pragma endregion
 };
 
 #endif
