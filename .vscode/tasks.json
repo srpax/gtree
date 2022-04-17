@@ -11,10 +11,10 @@
 				"-g",
 				"${workspaceFolder}/src/*.cpp",
 				"-o",
-				"${workspaceFolder}/build/out/linux/debug/gtree"
+				"${workspaceFolder}/build/output/linux/debug/gtree"
 			],
 			"options": {
-				"cwd": "${workspaceFolder}/build/out/linux/debug"
+				"cwd": "${workspaceFolder}/build/output/linux/debug"
 			},
 			"problemMatcher": [
 				"$gcc"
@@ -34,10 +34,10 @@
 				"-std=c++20",
 				"${workspaceFolder}/src/*.cpp",
 				"-o",
-				"${workspaceFolder}/build/out/linux/release/gtree"
+				"${workspaceFolder}/build/output/linux/release/gtree"
 			],
 			"options": {
-				"cwd": "${workspaceFolder}/build/out/linux/release"
+				"cwd": "${workspaceFolder}/build/output/linux/release"
 			},
 			"problemMatcher": [
 				"$gcc"

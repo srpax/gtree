@@ -31,6 +31,12 @@
 *.out
 *.app
 
-# gtree Build artifacts
-build/out/debug/*
-build/out/release/*
+# Output files
+build/output
+
+# Visual Studio user files
+*.user
+
+# Visual Studio cached files
+*.vs
+

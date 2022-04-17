@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32407.343
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gtree", "gtree.vcxproj", "{1927ECA2-DA39-47FB-A5AA-9C81DC35CD0D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		debug|x64 = debug|x64
+		release|x64 = release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1927ECA2-DA39-47FB-A5AA-9C81DC35CD0D}.debug|x64.ActiveCfg = debug|x64
+		{1927ECA2-DA39-47FB-A5AA-9C81DC35CD0D}.debug|x64.Build.0 = debug|x64
+		{1927ECA2-DA39-47FB-A5AA-9C81DC35CD0D}.release|x64.ActiveCfg = release|x64
+		{1927ECA2-DA39-47FB-A5AA-9C81DC35CD0D}.release|x64.Build.0 = release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D376B522-A200-4ABD-8A3A-6AECBF4A9514}
+	EndGlobalSection
+EndGlobal
